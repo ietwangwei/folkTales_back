@@ -1,12 +1,10 @@
-/**
- * 入口文件
- */
 const express = require("express");
+const { PrismaClient } = require("@prisma/client");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 const { port } = require("../configs/db.config");
-
+app.db = new PrismaClient();
 // 解析 form 格式 content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 

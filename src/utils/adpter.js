@@ -8,7 +8,7 @@ function adpter(list, map, res) {
       }
     } else {
       for (let i in list) {
-        res[map[i]] = list[i];
+        res[map[i] ? map[i] : i] = list[i];
       }
     }
   }

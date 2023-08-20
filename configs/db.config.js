@@ -4,18 +4,18 @@
 module.exports = {
   port: 8088,
   sqlClient: {
-    mysql: {
+    pgsql: {
       // 数据库存连接配置
       // host
-      host: "127.0.0.1",
+      host: "localhost",
       // 端口号
-      port: "3306",
+      port: "5432",
       // 用户名
-      user: "root",
+      user: "postgres",
       // 密码
       password: "admin",
       // 数据库名
-      database: "folksale",
+      database: "folktale"
     },
     config: (config) => {
       // 数据库工具配置

@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = app => {
-  app.get('/user', app.controller.user.getAllUsers);
+  app.get('/api/user', app.controller.user.getAllUsers);
 };

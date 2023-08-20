@@ -4,12 +4,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const routes = require("./router"); // 导入自定义路由文件，创建模块化路由
-const DbClient = require("ali-mysql-client");
 const app = express();
-const { port, mysqlClient } = require("../configs/db.config");
+const { port } = require("../configs/db.config");
 
-app.db = new DbClient(mysqlClient);
 // 解析 form 格式 content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -22,11 +19,11 @@ app.use(cors());
 // 加载控制器
 const UserController = require('./controller/user')(app);
 app.controller = {
-  home: new UserController(),
+  user: new UserController(),
 };
 
 // 加载服务
-const userService = require('./app/service/user')(app);
+const userService = require('./services/user')(app);
 app.service = {
   user: new userService()
 };

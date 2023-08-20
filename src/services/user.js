@@ -1,7 +1,8 @@
-module.exports = app => {
+module.exports = (app) => {
   class User {
     async getAllUsers() {
-      const res = app.db.select('*').from('user').queryValue()
+      const res = app.db.select("*").from("user").queryValue();
+      return res;
     }
   }
   return User;
